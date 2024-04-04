@@ -13,7 +13,7 @@ export default {
         },
       },
       animation: {
-        'spin-slow': 'spin 10s linear infinite', // Adjust duration as needed
+        'spin-slow': 'spin 20s linear infinite', // Adjust duration as needed
       },
     },
   },

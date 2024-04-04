@@ -8,17 +8,45 @@ const Navbar = () => {
   const navlinks = (
     <>
       <li key={"home"}>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-[#4aed8b] underline" : ""
+          }
+          to="/"
+        >
+          Home
+        </NavLink>
       </li>
       <li key={"About"}>
-        <NavLink to="/about">About</NavLink>
+        <NavLink
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-[#4aed8b] underline" : ""
+          }
+          to="/about"
+        >
+          About
+        </NavLink>
       </li>
       <li key={"contact"}>
-        <NavLink to="/contact">Contact</NavLink>
+        <NavLink
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-[#4aed8b] underline" : ""
+          }
+          to="/contact"
+        >
+          Contact
+        </NavLink>
       </li>
       {isManager && (
         <li>
-          <NavLink to="/dashboard">Dashboard</NavLink>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "text-[#4aed8b] underline" : ""
+            }
+            to="/dashboard"
+          >
+            Dashboard
+          </NavLink>
         </li>
       )}
     </>
