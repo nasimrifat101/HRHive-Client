@@ -1,10 +1,12 @@
-import useAuth from "../Hooks/useAuth";
+import Banner from "./homeponents/Banner";
+import Navbar from "./homeponents/Navbar";
 
 const Home = () => {
-    const {name} = useAuth()
+  
     return (
         <div>
-            Hello From {name}
+           <Navbar/>
+           <Banner/>
         </div>
     );
 };
