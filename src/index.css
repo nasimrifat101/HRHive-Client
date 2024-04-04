@@ -1,9 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*{
-    font-family: 'Poppins', sans-serif;
+* {
+  font-family: "Poppins", sans-serif;
+  
+  ;
+}
+
+.styles{
+    background-image: url("../src/assets/bg.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100vw;
+    background-blend-mode: soft-light;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: aquamarine;
+}
+
+.hover-stroke {
+  -webkit-text-stroke: 1px #2a6646; /* Stroke effect */
+  color: transparent; /* Hides the fill */
+}
+
+.hover-stroke:hover {
+  -webkit-text-stroke: unset; /* Remove stroke effect on hover */
+  color: #69e0a1; /* Fill color on hover */
+  transition: 200ms ease-in-out;
 }
