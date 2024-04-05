@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-  const isManager = false;
+  // const isManager = false;
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const navlinks = (
@@ -37,7 +37,7 @@ const Navbar = () => {
           Contact
         </NavLink>
       </li>
-      {isManager && (
+      {/* {isManager && ( */}
         <li>
           <NavLink
             className={({ isActive, isPending }) =>
@@ -48,7 +48,7 @@ const Navbar = () => {
             Dashboard
           </NavLink>
         </li>
-      )}
+      {/* )} */}
     </>
   );
 
@@ -102,7 +102,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 space-x-5">{navlinks}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Login</a>
+          <a className="btn">Request Access</a>
         </div>
       </div>
     </div>
