@@ -54,7 +54,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const position = window.screenY;
+      const position = window.scrollY;
       setScrollPosition(position);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -67,7 +67,7 @@ const Navbar = () => {
   return (
     <div
       className={`sticky top-0 z-50 ${
-        scrollPosition > 10 ? "backdrop-blur-lg bg-white/50" : ""
+        scrollPosition > 20 ? "backdrop-blur-sm bg-white/30" : ""
       }`}
     >
       <div className="navbar">
