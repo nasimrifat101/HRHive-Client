@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Total Employee",
+    "value": 2045
+  },
+  {
+    "label": "Total Attendance",
+    "value": 2001
+  },
+  {
+    "label": "Timely Attendance",
+    "value": 1897
+  },
+  {
+    "label": "Late Attendance",
+    "value": 15
+  },
+  {
+    "label": "Absent",
+    "value": 44
+  }
+]
