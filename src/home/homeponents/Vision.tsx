@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import weBest from '../../assets/weBest.svg'
 
 const Vision = () => {
   useEffect(() => {
@@ -22,7 +23,7 @@ const Vision = () => {
   }, []); 
 
   return (
-    <div className="min-h-screen relative pt-28">
+    <div className="min-h-screen relative pt-28 overflow-hidden">
       <div className="max-w-screen-2xl mx-auto">
         <p className="text-9xl font-bold text-green-100 -z-10 absolute">
           Purpose of
@@ -56,15 +57,18 @@ const Vision = () => {
             <p>Small Company</p>
           </div>
           <div>
-            <p className='text-5xl font-extrabold hover-stroke'>9.2m</p>
+            <p className='text-5xl font-extrabold hover-stroke'>9.2m+</p>
             <p>Worker Being Managed</p>
           </div>
           <div>
-            <p className='text-5xl font-extrabold hover-stroke'>1.2m</p>
+            <p className='text-5xl font-extrabold hover-stroke'>17.2m+</p>
             <p>Excruciating Hours Saved</p>
           </div>
          
         </div>
+      </div>
+      <div className='absolute top-20 -right-32 animate-spin-slow'>
+        <img src={weBest} alt="text-circle" className='w-[300px]'/>
       </div>
     </div>
   );
