@@ -1,7 +1,7 @@
 import circle from "../../assets/circle.svg";
 const Banner = () => {
   return (
-    <div className="min-h-screen max-w-screen-2xl mx-auto relative">
+    <div className="min-h-screen max-w-screen-2xl mx-auto relative mb-10">
       <div className="space-y-5 pt-20">
         <p className="text-9xl font-bold">Creating</p>
         <p className="text-9xl font-bold">

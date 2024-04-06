@@ -8,7 +8,7 @@ const Home = () => {
     <div className="relative">
       <Navbar />
       <Banner />
-      <Purpose/>
+      <Purpose/>  
       <div className="absolute">
         <Cursor />
       </div>
