@@ -8,12 +8,24 @@ interface Inputs {
   company: string;
 }
 
-const AccessForm = () => {
+interface Prop {
+  setModal: any;
+}
+
+const AccessForm: React.FC<Prop> = ({ setModal }) => {
   const { register, handleSubmit } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    const info = { ...data, requestedTime: new Date(), approved: "false" };
-    console.log(info);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      const info = { ...data, requestedTime: new Date(), approved: "false" };
+      localStorage.setItem("request", JSON.stringify(info));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setTimeout(() => {
+        setModal(false);
+      }, 1000);
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
   };
 
   return (
@@ -23,15 +35,16 @@ const AccessForm = () => {
           <p className="text-3xl">Request Access</p>
           <p className="">
             HRHive offers premium Human Resource management software, providing
-             all-in-one solution.{" "}
+            all-in-one solution.{" "}
             <span className="font-bold">
               We offer a complimentary six-month trial period
             </span>{" "}
             to allow you to experience the full capabilities of our software.
           </p>
           <p>
-            To request, please complete the form. Our team will promptly
-            respond to your request and assist you further & you'll get login details in you email after your request is approved.
+            To request, please complete the form. Our team will promptly respond
+            to your request and assist you further & you'll get login details in
+            you email after your request is approved.
           </p>
         </div>
 
@@ -40,28 +53,28 @@ const AccessForm = () => {
           className="flex flex-col w-1/2 space-y-3"
         >
           <input
-            {...register("company")}
+            {...register("company", { required: true })}
             placeholder="Company name"
             className="input input-bordered"
           />
 
           <input
-            {...register("name")}
+            {...register("name", { required: true })}
             placeholder="Your name"
             className="input input-bordered"
           />
           <input
-            {...register("designation")}
+            {...register("designation", { required: true })}
             placeholder="Your designation"
             className="input input-bordered"
           />
           <input
-            {...register("email")}
+            {...register("email", { required: true })}
             placeholder="Email you want to open account with"
             className="input input-bordered"
           />
           <input
-            {...register("phone")}
+            {...register("phone", { required: true })}
             type="tel"
             placeholder="Phone number"
             className="input input-bordered"
