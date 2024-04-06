@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import AccessForm from "../../auth/AccessForm";
 import closeBtn from "../../assets/close.svg";
 
 const Navbar = () => {
   // const isManager = false;
+  const navigate = useNavigate();
   const [openModal, setOpenModal] = useState(false);
+  const [openApproved, setOpenApproved] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -69,7 +71,6 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    // Check if there's data in local storage
     const requestData = JSON.parse(localStorage.getItem("request") || "{}");
     const email = requestData?.email;
     if (email) {
@@ -85,6 +86,15 @@ const Navbar = () => {
       setOpenModal(true);
     } else {
       console.log(requestData);
+    }
+  };
+
+  const handleSignup = () => {
+    const approved = true;
+    if (!approved) {
+      setOpenApproved(true);
+    } else {
+      navigate("/signup");
     }
   };
 
@@ -141,7 +151,14 @@ const Navbar = () => {
                 Request Access
               </button>
             ) : (
-              <button className="btn">Signup</button>
+              <button
+                onClick={() => {
+                  handleSignup();
+                }}
+                className="btn"
+              >
+                Signup
+              </button>
             )}
           </div>
         </div>
@@ -164,6 +181,25 @@ const Navbar = () => {
             </div>
           </div>
         </>
+      )}
+      {openApproved && (
+        <div className="absolute backdrop-blur-md z-40 w-full">
+          <div className="flex justify-center items-center  h-screen">
+            <div className="bg-red-100 p-10 rounded-lg">
+              <p>Your access request has been not approved yet</p>
+            </div>
+          </div>
+          <div className="absolute top-[370px] right-[690px] z-50">
+              <button
+                onClick={() => {
+                  setOpenApproved(false);
+                }}
+                className="animate-spin-slow"
+              >
+                <img src={closeBtn} alt="" className="w-16 h-16" />
+              </button>
+            </div>
+        </div>
       )}
     </div>
   );
