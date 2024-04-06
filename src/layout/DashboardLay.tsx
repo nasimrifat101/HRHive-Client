@@ -1,7 +1,8 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import DashNav from "../dashboard/Common/DashNav";
 
 const DashboardLay = () => {
+  const navigate = useNavigate()
   return (
     <div className="min-h-screen">
       <div className="flex">
@@ -70,7 +71,7 @@ const DashboardLay = () => {
             </ul>
             <div className="divider"></div>
             <div className="space-y-4 mt-20">
-              <button className="btn w-full">Home</button>
+              <button onClick={()=>{navigate('/')}} className="btn w-full">Home</button>
               <button className="btn w-full bg-red-300">Logout</button>
             </div>
           </div>

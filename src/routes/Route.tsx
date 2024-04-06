@@ -3,7 +3,7 @@ import Main from "../layout/Main";
 import Home from "../home/Home";
 import NotFound from "../error/NotFound";
 import DashboardLay from "../layout/DashboardLay";
-import Stats from "../dashboard/HrDashboard/Stats";
+import Stats from "../dashboard/HrDashboard/stats/Stats";
 
 export const router = createBrowserRouter([
   {

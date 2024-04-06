@@ -3,14 +3,10 @@ import weBest from '../../assets/weBest.svg'
 
 const Vision = () => {
   useEffect(() => {
-    // Function to add animation class to each span
     const animateWords = () => {
       const words = document.querySelectorAll('.glow');
-
       let currentIndex = 0;
-
       const highlightWord = () => {
-        // Remove highlight classes from all words
         words.forEach(w => w.classList.remove('text-green-300', 'font-bold', 'text-3xl'));
         words[currentIndex].classList.add('text-green-300', 'font-bold', 'text-3xl');
         currentIndex = (currentIndex + 1) % words.length;
