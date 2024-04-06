@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import AccessForm from "../../auth/AccessForm";
 import closeBtn from "../../assets/close.svg";
+import useApproved from "../../Hooks/useApproved";
 
 const Navbar = () => {
   // const isManager = false;
@@ -10,6 +11,7 @@ const Navbar = () => {
   const [openApproved, setOpenApproved] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [loggedIn, setLoggedIn] = useState(false);
+  const approved = useApproved()
 
   const navlinks = (
     <>
@@ -90,7 +92,6 @@ const Navbar = () => {
   };
 
   const handleSignup = () => {
-    const approved = true;
     if (!approved) {
       setOpenApproved(true);
     } else {
