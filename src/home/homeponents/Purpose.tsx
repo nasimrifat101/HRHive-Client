@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import weBest from '../../assets/weBest.svg'
 
-const Vision = () => {
+const Purpose = () => {
   useEffect(() => {
     const animateWords = () => {
       const words = document.querySelectorAll('.glow');
@@ -19,7 +19,7 @@ const Vision = () => {
   }, []); 
 
   return (
-    <div className="min-h-screen relative pt-28 overflow-hidden">
+    <div className="min-h-screen relative my-10 overflow-hidden">
       <div className="max-w-screen-2xl mx-auto">
         <p className="text-9xl font-bold text-green-100 -z-10 absolute">
           Purpose of
@@ -70,4 +70,4 @@ const Vision = () => {
   );
 };
 
-export default Vision;
+export default Purpose;
