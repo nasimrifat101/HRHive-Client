@@ -1,14 +1,14 @@
 import Cursor from "../utils/Cursor";
 import Banner from "./homeponents/Banner";
 import Navbar from "./homeponents/Navbar";
-import Vision from "./homeponents/Vision";
+import Purpose from "./homeponents/Purpose";
 
 const Home = () => {
   return (
     <div className="relative">
       <Navbar />
       <Banner />
-      <Vision/>
+      <Purpose/>
       <div className="absolute">
         <Cursor />
       </div>
