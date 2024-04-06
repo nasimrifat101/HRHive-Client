@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import AccessForm from "../../auth/AccessForm";
-import closeBtn from '../../assets/close.svg'
+import closeBtn from "../../assets/close.svg";
 
 const Navbar = () => {
   // const isManager = false;
   const [openModal, setOpenModal] = useState(false);
-
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [loggedIn, setLoggedIn] = useState(false);
+
   const navlinks = (
     <>
       <li key={"home"}>
@@ -67,6 +68,26 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Check if there's data in local storage
+    const requestData = JSON.parse(localStorage.getItem("request") || "{}");
+    const email = requestData?.email;
+    if (email) {
+      setLoggedIn(true);
+    }
+  }, [openModal, loggedIn]);
+
+  const handleRequest = () => {
+    const requestData = JSON.parse(localStorage.getItem("request") || "{}");
+    const email = requestData?.email;
+
+    if (!email) {
+      setOpenModal(true);
+    } else {
+      console.log(requestData);
+    }
+  };
+
   return (
     <div className="relative">
       <div
@@ -110,14 +131,18 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1 space-x-5">{navlinks}</ul>
           </div>
           <div className="navbar-end">
-            <button
-              onClick={() => {
-                setOpenModal(true);
-              }}
-              className="btn"
-            >
-              Request Access
-            </button>
+            {!loggedIn ? ( // Render "Request Access" button if not logged in
+              <button
+                onClick={() => {
+                  handleRequest();
+                }}
+                className="btn"
+              >
+                Request Access
+              </button>
+            ) : (
+              <button className="btn">Signup</button>
+            )}
           </div>
         </div>
       </div>
@@ -125,10 +150,15 @@ const Navbar = () => {
         <>
           <div className="absolute backdrop-blur-md z-40 w-full">
             <div>
-              <AccessForm />
+              <AccessForm setModal={() => setOpenModal(false)} />
             </div>
             <div className="absolute top-[190px] right-[430px] z-50">
-              <button onClick={()=>{setOpenModal(false)}} className="animate-spin-slow">
+              <button
+                onClick={() => {
+                  setOpenModal(false);
+                }}
+                className="animate-spin-slow"
+              >
                 <img src={closeBtn} alt="" className="w-20 h-20" />
               </button>
             </div>
