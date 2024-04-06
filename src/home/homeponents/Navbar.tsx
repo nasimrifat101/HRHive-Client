@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import AccessForm from "../../auth/AccessForm";
+import closeBtn from '../../assets/close.svg'
 
 const Navbar = () => {
   // const isManager = false;
@@ -122,9 +123,14 @@ const Navbar = () => {
       </div>
       {openModal && (
         <>
-          <div className="absolute backdrop-blur-sm z-50 w-full">
-            <div className="">
+          <div className="absolute backdrop-blur-md z-40 w-full">
+            <div>
               <AccessForm />
+            </div>
+            <div className="absolute top-[190px] right-[430px] z-50">
+              <button onClick={()=>{setOpenModal(false)}} className="animate-spin-slow">
+                <img src={closeBtn} alt="" className="w-20 h-20" />
+              </button>
             </div>
           </div>
         </>
