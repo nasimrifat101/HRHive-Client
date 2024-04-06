@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import FormatDate from "../../utils/DateFormat";
+import FormatDate from "../../../utils/DateFormat";
+import StatsCharts from "./StatsCharts";
 
 const Stats = () => {
   const [states, setStates] = useState<any | null>(null);
 
   useEffect(() => {
-    axios.get("/public/stats.json").then((res) => {
+    axios.get("/stats.json").then((res) => {
       setStates(res.data);
     });
   }, []);
@@ -29,6 +30,10 @@ const Stats = () => {
             ))}
           </div>
         </div>
+      </div>
+      {/* stats */}
+      <div>
+        <StatsCharts/>
       </div>
     </div>
   );
